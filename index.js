@@ -6,7 +6,7 @@ import { customAlphabet } from "nanoid";
 
 const app = express();
 const port = process.env.PORT || 8800;
-const nanoid = customAlphabet("1234567890", 10);
+const nanoid = customAlphabet("1234567890", 4);
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +18,7 @@ app.post("/register", async (req, res) => {
     nik: req.body.nik,
     jenisKelamin: req.body.jenisKelamin,
     umur: req.body.umur,
-    noPendaftaran: `PPDB-${nanoid()}`,
+    noPendaftaran: `PPDB-${nanoid()}-TPA`,
   });
 
   const result = await student.save();
