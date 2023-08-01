@@ -26,6 +26,15 @@ app.post("/register", async (req, res) => {
   return res.json(result);
 });
 
+app.post("/login", async (req, res) => {
+  const noPendaftaran = req.body.noPendaftaran;
+  const nama = req.body.nama;
+
+  const result = Student.find({ noPendaftaran: noPendaftaran, nama: nama });
+
+  return res.json(result);
+});
+
 app.listen(port, () => {
   console.log(`Listening at port : ${port}`);
 });
