@@ -30,10 +30,12 @@ app.post("/login", async (req, res) => {
   const noPendaftaran = req.body.noPendaftaran;
   const nama = req.body.nama;
 
-  const result = await Student.find({
+  const asd = await Student.find({
     noPendaftaran: noPendaftaran,
     nama: nama,
   });
+
+  const result = asd.toString();
 
   return res.json(result);
 });
