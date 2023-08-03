@@ -27,13 +27,10 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const noPendaftaran = req.body.noPendaftaran;
-  const nama = req.body.nama;
-
   const result = await Student.find({
-    noPendaftaran: noPendaftaran,
-    nama: nama,
-  }).exec();
+    noPendaftaran: req.body.noPendaftaran,
+    nama: req.body.nama,
+  });
 
   return res.json(result);
 });
