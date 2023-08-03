@@ -33,7 +33,7 @@ app.post("/login", async (req, res) => {
   const result = await Student.find({
     noPendaftaran: noPendaftaran,
     nama: nama,
-  });
+  }).exec();
 
   return res.json(result);
 });
