@@ -12,6 +12,12 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/", async (req, res) => {
+  const student = await Student.find();
+
+  return res.send(student);
+});
+
 app.post("/register", async (req, res) => {
   const student = new Student({
     nama: req.body.nama,
