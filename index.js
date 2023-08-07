@@ -53,6 +53,12 @@ app.post("/update", async (req, res) => {
   return res.json(result);
 });
 
+app.post("/delete", async (req, res) => {
+  const result = await Student.findByIdAndDelete(req.body.id);
+
+  return res.json(result);
+});
+
 app.listen(port, () => {
   console.log(`Listening at port : ${port}`);
 });
