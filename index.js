@@ -41,6 +41,18 @@ app.post("/login", async (req, res) => {
   return res.json(result);
 });
 
+app.post("/update", async (req, res) => {
+  const id = req.body.id;
+  const result = await Student.findByIdAndUpdate(id, {
+    nama: req.body.nama,
+    nik: req.body.nik,
+    jenisKelamin: req.body.jenisKelamin,
+    umur: req.body.umur,
+  });
+
+  return res.json(result);
+});
+
 app.listen(port, () => {
   console.log(`Listening at port : ${port}`);
 });
